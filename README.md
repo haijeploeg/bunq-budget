@@ -1,11 +1,11 @@
-#Bunq Budget
+# Bunq Budget
 Bunq budget is a - self hosted - web app to keep track of your finances!
 
 This app uses the uses the official [Bunq Python SDK](https://github.com/bunq/sdk_python) to get the data. [Stisla](https://getstisla.com/) is being used as a front-end. 
 
 > **_NOTE:_** This app will **ONLY** use GET requests, this app wil never talk to a endpoint of the Bunq API using PATCH, POST, PUT or DELETE.
 
-##Installing
+## Installing
 > **_NOTE:_** This app is still in early stage and in heavy development. Therefor there is only a guide to install a development environment.
 ```console
 # Clone using SSH
