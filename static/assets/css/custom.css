@@ -1,0 +1,101 @@
+@charset "UTF-8";
+
+.navbar-bg {
+  background: linear-gradient(to right, 
+  #238647 0%, 
+  #238647 4.16666666667%, 
+  #2F9B47 8.33333333333%, 
+  #2F9B47 12.5%, 
+  #62b64F 16.6666666667%, 
+  #62b64F 20.8333333333%, 
+  #89CC53 29.1666666667%, 
+  #89CC53 33.3333333333%, 
+  #3DB8AD 37.5%, 
+  #3DB8AD 41.6666666667%,
+  #3394D7 45.8333333333%,
+  #3394D7 50%,
+  #2872BC 54.1666666667%,
+  #2872BC 58.3333333333%,
+  #1D5C84 62.5%,
+  #1D5C84 66.6666666667%,
+  #993233 70.8333333333%,
+  #993233 75%,
+  #E13030 79.1666666667%,
+  #E13030 83.3333333333%,
+  #F28825 87.5%,
+  #F28825 91.6666666667%,
+  #F5C836 95.8333333333%,
+  #F5C836 100%) 
+  !important;
+}
+.card .card-header h4 {
+  color: #343a40; }
+
+.section .section-title-success {
+  font-size: 18px;
+  color: #191d21;
+  font-weight: 600;
+  position: relative;
+  margin: 30px 0 25px 0; }
+  .section .section-title-success:before {
+    content: ' ';
+    border-radius: 5px;
+    height: 8px;
+    width: 30px;
+    background-color: #47c363;
+    display: inline-block;
+    margin-top: 6px;
+    margin-right: 15px; }
+.section .section-title-success + .section-lead {
+  margin-top: -20px; }
+.section .section-lead {
+  margin-left: 45px; }
+
+.section .section-title-info {
+  font-size: 18px;
+  color: #191d21;
+  font-weight: 600;
+  position: relative;
+  margin: 30px 0 25px 0; }
+  .section .section-title-info:before {
+    content: ' ';
+    border-radius: 5px;
+    height: 8px;
+    width: 30px;
+    background-color: #3abaf4;
+    display: inline-block;
+    margin-top: 6px;
+    margin-right: 15px; }
+.section .section-title-info + .section-lead {
+  margin-top: -20px; }
+.section .section-lead {
+  margin-left: 45px; }
+
+.section .section-title-primary {
+  font-size: 18px;
+  color: #191d21;
+  font-weight: 600;
+  position: relative;
+  margin: 30px 0 25px 0; }
+  .section .section-title-primary:before {
+    content: ' ';
+    border-radius: 5px;
+    height: 8px;
+    width: 30px;
+    background-color: #6777ef;
+    display: inline-block;
+    margin-top: 6px;
+    margin-right: 15px; }
+.section .section-title-primary + .section-lead {
+  margin-top: -20px; }
+.section .section-lead {
+  margin-left: 45px; }
+
+.center {
+  /* margin: 0; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}

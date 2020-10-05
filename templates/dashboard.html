@@ -1,0 +1,208 @@
+{% extends 'layouts/main.html' %}
+
+{% block title %} Dashboard {% endblock title %}
+
+<!-- Page specific CSS -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart">
+                  <canvas id="income-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-success bg-success">
+                  <li class="ion ion-arrow-graph-up-right" data-pack="default" data-tags="stats"></li>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Inkomsten</h4>
+                  </div>
+                  <div class="card-body">
+                    € 2.000
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart">
+                  <canvas id="expense-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-danger bg-danger">
+                  <li class="ion ion-arrow-graph-down-right" data-pack="default" data-tags="stats"></li>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Uitgaven</h4>
+                  </div>
+                  <div class="card-body">
+                    € 789
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart">
+                  <canvas id="balance-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-warning bg-warning">
+                  <i class="fas fa-balance-scale"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Balans</h4>
+                  </div>
+                  <div class="card-body">
+                    € 4.732
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-3 col-md-3 col-sm-12">
+              <div class="card card-statistic-2">
+                <div class="card-chart">
+                  <canvas id="total-chart" height="80"></canvas>
+                </div>
+                <div class="card-icon shadow-primary bg-primary">
+                  <i class="fas fa-piggy-bank"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Totaal</h4>
+                  </div>
+                  <div class="card-body">
+                    € 30.542
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 col-sm-12 col-lg-8 d-flex">
+              <div class="card flex-fill">
+                <div class="card-header">
+                  <h4>Statistics</h4>
+                  <div class="card-header-action">
+                    <a href="#" class="btn active">Week</a>
+                    <a href="#" class="btn">Month</a>
+                    <a href="#" class="btn">Year</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <canvas id="income-expense-chart"></canvas>
+                  <div class="statistic-details mt-1">
+                    <div class="statistic-details-item">
+                      <div class="text-small text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span>9%</div>
+                      <div class="detail-value">€ 543</div>
+                      <div class="detail-name">Deze Maand</div>
+                    </div>
+                    <div class="statistic-details-item">
+                      <div class="text-small text-muted"><span class="text-primary"><i class="fas fa-caret-up"></i></span> 19%</div>
+                      <div class="detail-value">€ 3000</div>
+                      <div class="detail-name">Dit Jaar</div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-4 col-md-12 col-12 col-sm-12 d-flex">
+              <div class="card flex-fill">
+                <div class="card-header">
+                  <h4>Recente Transacties</h4>
+                  <div class="card-header-action">
+                      <a href="#" class="btn btn-primary">
+                        Alle transacties
+                      </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <ul class="list-unstyled list-unstyled-border">
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-success">€ 7.654,87</div>
+                        <div class="media-title">Werkgever</div>
+                        <span class="text-small text-muted">20 Agugustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-danger">- € 50,63</div>
+                        <div class="media-title">Verzekering</div>
+                        <span class="text-small text-muted">13 Augustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-danger">- € 987,87</div>
+                        <div class="media-title">Huur</div>
+                        <span class="text-small text-muted">2 Augustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-success">€ 698</div>
+                        <div class="media-title">Belastingdienst</div>
+                        <span class="text-small text-muted">1 Augustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-success">€ 100</div>
+                        <div class="media-title">John Doe</div>
+                        <span class="text-small text-muted">1 Augustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-success">€ 100</div>
+                        <div class="media-title">Jane Doe</div>
+                        <span class="text-small text-muted">1 Augustus 2020</span>
+                      </div>
+                    </li>
+                    <li class="media">
+                      <a href="#">
+                        <img alt="image" class="mr-3 rounded" width="50" src="/static/assets/img/avatar-1.png">
+                      </a>
+                      <div class="media-body">
+                        <div class="float-right text-success">€ 100</div>
+                        <div class="media-title">Jane Doe</div>
+                        <span class="text-small text-muted">1 Augustus 2020</span>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        
+{% endblock content %}
+
+<!-- Page specific JS -->
+{% load static %}
+{% block javascripts %}
+<script src="{% static '/assets/js/plugins/chart.js/Chart.min.js' %}"></script>
+<script src="{% static '/assets/js/pages/index.js' %}"></script> 
+{% endblock javascripts %}

@@ -1,0 +1,90 @@
+{% extends 'layouts/main.html' %}
+{% load djmoney %}
+{% load filters %}
+
+{% block title %} Accounts {% endblock title %}
+
+<!-- Page specific CSS -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <section class="section">
+          <div class="section-header">
+            <h1>Rekeningen</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="{% url 'home' %}">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="{% url 'accounts' %}">Rekeningen</a></div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-primary">
+                  <i class="far fa-user"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Aantal rekeningen</h4>
+                  </div>
+                  <div class="card-body">
+                    {{ total_accounts }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-lg-6 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-warning">
+                  <i class="far fa-file"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Totaal</h4>
+                  </div>
+                  <div class="card-body">
+                    {% money_localize total_amount %}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header">
+                  <h4>Overzicht rekeningen</h4>
+                </div>
+                <div class="card-body p-0">
+                  <div class="table-responsive table-invoice">
+                    <table class="table table-striped">
+                      <tbody>
+                        <tr>
+                          <th>Rekening</th>
+                          <th>Rekeninghouder(s)</th>
+                          <th>IBAN</th>
+                          <th>Type</th>
+                          <th>Balans</th>
+                        </tr>
+                        {% for account in monetary_accounts %}
+                        <tr>
+                          <td>{{ account.description }}</td>
+                          <td>{{ account.display_name }}</td>
+                          <td>{{ account.iban }}</td>
+                          <td>{{ account.monetary_account_type|monetary_type }}</td>
+                          <td>{{ account.balance }}</td>
+                        </tr>
+                        {% endfor %}
+                      </tbody>
+                    </table>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+{% endblock content %}
+
+<!-- Page specific JS -->
+{% load static %}
+{% block javascripts %}{% endblock javascripts %}

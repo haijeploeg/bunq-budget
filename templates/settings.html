@@ -1,0 +1,127 @@
+{% extends 'layouts/main.html' %}
+
+{% load filters %}
+
+{% load static %}
+
+{% block title %} Accounts {% endblock title %}
+
+<!-- Page specific CSS -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+        <section class="section">
+          <div class="section-header">
+            <h1>Instellingen</h1>
+            <div class="section-header-breadcrumb">
+              <div class="breadcrumb-item active"><a href="{% url 'home' %}">Dashboard</a></div>
+              <div class="breadcrumb-item"><a href="">Account</a></div>
+              <div class="breadcrumb-item">Instellingen</div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-12 mb-4">
+              <div class="hero text-white hero-bg-image" data-background="/static/assets/img/coins-bg.jpg">
+                <div class="hero-inner">
+                  <h2>Welkom, Haije!</h2>
+                  <p class="lead">Personaliseer hier je account.</p>
+                </div>
+                <div class="hero-inner text-right">
+                  <div class="mt-4">
+                    <button type="submit" form="profile_form" class="btn btn-outline-white btn-lg">Opslaan</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+            <div class="col-12 col-md-6 col-lg-6 d-flex">
+              <div class="card flex-fill">
+                <form method="POST" id="profile_form" class="needs-validation" novalidate="">
+                {% csrf_token %}
+                <div class="card-body">
+                  <div class="section-title-success mt-0">Profiel</div>
+                  <div class="form-group">
+                    <label>Voornaam</label>
+                    {{ user_form.first_name }}
+                    <div class="invalid-feedback">
+                      Wat is je voornaam?
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Achternaam</label>
+                    {{ user_form.last_name }}
+                    <div class="invalid-feedback">
+                      Wat is je achternaam?
+                    </div>
+                  </div>
+
+                  <div class="section-title-info mt-0">Bunq</div>
+
+                  <div class="form-group">
+                    <label>Bunq API key</label>
+                    {{ settings_form.bunq_api_key }}
+                    <div class="invalid-feedback">
+                      Voer je bunq API key in! Deze moet 64 karakters zijn.
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label>Bunq API omgeving</label>
+                    {{ settings_form.bunq_api_environment }}
+                    <div class="invalid-feedback">
+                      Voer SANDBOX of PRODUCTION in.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-6 d-flex">
+              <div class="card flex-fill">
+                {% csrf_token %}
+                {{ monetary_form.management_form }}
+                  <div class="card-body">
+                    <div class="section-title-primary mt-0">Rekeningen</div>
+
+                    {% if monetary_form.forms|length == 0 %}
+                    <div class="empty-state" data-height="400" style="height: 400px;">
+                      <img class="img-fluid" src="{% static '/assets/img/drawkit-mobile-article-colour.svg' %}" alt="image">
+                      <h2 class="mt-4">Geen rekeningen gevonden</h2>
+                      <p class="lead">
+                        Vul eerst een geldige API key in! Daarna zullen de rekeningen hier automatisch verschijnen.
+                      </p>
+                    </div>
+
+                    {% else %}
+                    
+                    <div class="form-group">
+                      <label>Welke rekeningen wil je gebruiken in de app?</label>
+                      
+                      {% for form in monetary_form %}
+                      <div class="form-check">
+                        <label class="custom-switch-stacked mt-2">
+                          {{ form }}
+                          <span class="custom-switch-indicator"></span>
+                          <span class="custom-switch-description">{{ accounts|get:form.id.value }}</span>
+                        </label>
+                      </div>
+                      {% endfor %}
+
+                    {% endif %}
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </section>
+
+
+{% endblock content %}
+
+<!-- Page specific JS -->
+{% load static %}
+{% block javascripts %}{% endblock javascripts %}

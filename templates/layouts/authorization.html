@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Static assets -->
+{% load static %}
+
+<head>
+  <meta charset="UTF-8">
+  <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
+
+  {% include "includes/favicon.html" %}
+
+  <title>Login &mdash; Bunq Budget</title>
+
+  <!-- General CSS Files -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
+  <!-- CSS Libraries -->
+  <link rel="stylesheet" href="{% static '/assets/css/ionicons.min.css' %}">
+
+  <!-- Template CSS -->
+  <link rel="stylesheet" href="{% static '/assets/css/style.css' %}">
+  <link rel="stylesheet" href="{% static '/assets/css/components.css' %}">
+  <link rel="stylesheet" href="{% static '/assets/css/custom.css' %}">
+
+   <!-- Page specific CSS -->
+  {% block stylesheets %}{% endblock stylesheets %}
+</head>
+
+<body>
+  <div id="app">
+
+  {% block content %}{% endblock content %}
+
+  </div>
+
+  {% include 'includes/scripts.html' %}
+
+  <!-- Page Specific JS File -->
+  {% block javascripts %}{% endblock javascripts %}
+
+</body>
+</html>

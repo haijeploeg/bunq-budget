@@ -1,0 +1,29 @@
+    
+      <!-- Side Navbar -->
+      <div class="main-sidebar">
+        <aside id="sidebar-wrapper">
+          <div class="sidebar-brand">
+            <a href="{% url 'home' %}">Bunq Budget</a>
+          </div>
+          <div class="sidebar-brand sidebar-brand-sm">
+            <a href="{% url 'home' %}">BB</a>
+          </div>
+          <ul class="sidebar-menu">
+            {% with url_name=request.resolver_match.url_name %}
+            <li class="menu-header">Financiële overzichten</li>
+            <li {% if url_name == 'home' %}class="active"{% endif %}><a class="nav-link" href="{% url 'home' %}"><i class="fas fa-home"></i><span>Dashboard</span></a></li>
+            <li {% if url_name == 'accounts' %}class="active"{% endif %}><a class="nav-link" href="{% url 'accounts' %}"><i class="far fa-user"></i></i><span>Rekeningen</span></a></li>
+            <li {% if url_name == 'transactions' %}class="active"{% endif %}><a class="nav-link" href="{% url 'transactions' %}"><i class="fas fa-money-check"></i></i><span>Transacties</span></a></li>
+            <li {% if url_name == 'category' %}class="active"{% endif %}><a class="nav-link" href="{% url 'category' %}"><i class="fas fa-chart-pie"></i></i><span>Categorieën</span></a></li>
+            <li {% if url_name == 'savings' %}class="active"{% endif %}><a class="nav-link" href="{% url 'savings' %}"><i class="fas fa-piggy-bank"></i></i><span>Sparen</span></a></li>
+            <li class="menu-header">Account</li>
+            <li class="nav-item dropdown {% if url_name == 'settings' %}active{% endif %}">
+                <a href="#" class="nav-link has-dropdown"><i class="far fa-user"></i><span>Account</span></a>
+                <ul class="dropdown-menu" {% if url_name == 'settings' %} style="display: block;"{% endif %}>
+                  <li {% if url_name == 'settings' %}class="active"{% endif %}><a href="{% url 'settings' %}">Instellingen</a></li>
+                </ul>
+              </li>
+            {% endwith %}
+            </ul>
+        </aside>
+      </div>

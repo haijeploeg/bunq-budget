@@ -1,0 +1,71 @@
+{% extends 'layouts/authorization.html' %}
+
+{% load static %}
+
+{% block title %} Login {% endblock title %}
+
+<!-- Page specific CSS -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+    <section class="section">
+      <div class="d-flex flex-wrap align-items-stretch">
+        <div class="col-lg-4 col-md-6 col-12 order-lg-1 min-vh-100 order-2 bg-white">
+          <div class="p-4 m-3">
+            <img src="{% static '/assets/img/logo.svg' %}" alt="logo" width="80" class="shadow-light rounded-circle mb-5 mt-2">
+            <h4 class="text-dark font-weight-normal">Welkom bij <span class="font-weight-bold">Bunq Budget</span></h4>
+            <p class="text-muted">Voordat je inzicht kan krijgen in je rekeningen, moet je eerst inloggen.</p>
+            
+            {% if auth_failed %}
+            <p class="text-danger"> Onjuiste login gegevens </p>
+
+            {% elif form_not_valid %}
+            <p class="text-danger"> Er is iets fout gegaan, probeer het nogmaals </p>
+            {% endif %}
+            
+            <form method="POST" class="needs-validation" novalidate="">
+            {% csrf_token %}
+              <div class="form-group">
+                <label for="username">Gebruikersnaam</label>
+                {{ form.username }}
+                <div class="invalid-feedback">
+                  Voer je gebruikersnaam in.
+                </div>
+              </div>
+
+              <div class="form-group">
+                <div class="d-block">
+                  <label for="password" class="control-label">Wachtwoord</label>
+                </div>
+                {{ form.password }}
+                <div class="invalid-feedback">
+                  Voer je wachtwoord in.
+                </div>
+              </div>
+
+              <div class="form-group text-right">
+                <button type="submit" class="btn btn-primary btn-lg btn-icon icon-right" tabindex="4">
+                  Login
+                </button>
+              </div>
+
+              <div class="mt-5 text-center">
+                Nog geen account? <a href="{% url 'register' %}">Registreer je hier</a>
+              </div>
+            </form>
+
+            <div class="text-center mt-5 text-small">
+              Copyright &copy; 2020 Haije Ploeg. Made with 💙 by Stisla
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-8 col-12 order-lg-2 order-1 min-vh-100 background-walk-y position-relative overlay-gradient-bottom" data-background="{% static '/assets/img/login-bg.jpg' %}">
+        </div>
+      </div>
+    </section>
+
+{% endblock content %}
+
+<!-- Page specific JS -->
+{% block javascripts %}{% endblock javascripts %}
